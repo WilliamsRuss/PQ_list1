@@ -37,8 +37,14 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-  # +++your code here+++
-  return
+  swords = sorted(words)
+  index = 0
+  for x in range(len(swords)):
+    if (swords[index][0] == 'x'):
+      index += 1
+    else:
+      swords.append(swords.pop(index))
+  return swords
 
 
 
@@ -48,9 +54,12 @@ def front_x(words):
 # e.g. [(1, 7), (1, 3), (3, 4, 5), (2, 2)] yields
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
+def skey(tups):
+  return tups[1]
+
 def sort_last(tuples):
   # +++your code here+++
-  return
+  return sorted(tuples, key = skey)
 
 
 # Simple provided test() function used in main() to print
